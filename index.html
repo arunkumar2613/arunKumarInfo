@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>[YOUR_NAME] | Azure Data Engineer</title>
+  <meta name="description" content="Azure Data Engineer with 4 years of experience building batch and real-time data pipelines on Azure." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #EEF2F4;      /* cool lake-water off-white */
+      --sheet: #FFFFFF;
+      --ink: #142231;        /* deep navy ink */
+      --muted: #5A6B7A;
+      --line: #D4DCE2;
+      --link: #0B5FA5;
+      /* Medallion layers: the one bold motif on the page */
+      --bronze: #A8693A;
+      --silver: #8D99A6;
+      --gold: #C9A227;
+      --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+      --body: "Schibsted Grotesk", "Segoe UI", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 400 16px/1.6 var(--body);
+    }
+    a { color: var(--link); text-underline-offset: 3px; }
+    a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
+
+    .page {
+      max-width: 1080px;
+      margin: 40px auto;
+      background: var(--sheet);
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      border: 1px solid var(--line);
+    }
+
+    /* ---------- Sidebar ---------- */
+    aside {
+      padding: 48px 32px;
+      border-right: 1px solid var(--line);
+    }
+    .layers { display: flex; flex-direction: column; gap: 4px; margin-bottom: 28px; }
+    .layers span { height: 8px; }
+    .layers span:nth-child(1) { width: 100%; background: var(--bronze); }
+    .layers span:nth-child(2) { width: 72%;  background: var(--silver); }
+    .layers span:nth-child(3) { width: 44%;  background: var(--gold); }
+
+    h1 {
+      font: 700 2.4rem/1.05 var(--display);
+      letter-spacing: -0.02em;
+      margin: 0 0 8px;
+    }
+    .role { font-weight: 500; color: var(--muted); margin: 0 0 32px; }
+
+    .contact { list-style: none; padding: 0; margin: 0 0 40px; font-size: 0.95rem; }
+    .contact li { margin-bottom: 6px; overflow-wrap: anywhere; }
+
+    aside h2 {
+      font: 600 1rem/1.3 var(--display);
+      margin: 0 0 14px;
+    }
+    .skills { margin: 0; }
+    .skills div { margin-bottom: 14px; }
+    .skills dt { font-size: 0.85rem; color: var(--muted); }
+    .skills dd { margin: 0; font-size: 0.95rem; }
+
+    /* ---------- Main ---------- */
+    main { padding: 48px 56px; }
+    section + section { margin-top: 44px; }
+    main h2 {
+      font: 700 1.5rem/1.2 var(--display);
+      letter-spacing: -0.01em;
+      margin: 0 0 18px;
+    }
+    .summary { font-size: 1.08rem; max-width: 62ch; margin: 0; }
+
+    .employer {
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px;
+      padding-bottom: 12px; margin-bottom: 24px; border-bottom: 1px solid var(--line);
+    }
+    .employer strong { font-weight: 600; }
+    .dates { color: var(--muted); font-size: 0.92rem; white-space: nowrap; }
+
+    /* Timeline: projects are a genuine chronological sequence */
+    .project { position: relative; padding-left: 28px; }
+    .project + .project { margin-top: 36px; }
+    .project::before {
+      content: ""; position: absolute; left: 5px; top: 10px; bottom: -36px;
+      width: 2px; background: var(--line);
+    }
+    .project:last-child::before { bottom: 0; }
+    .project::after {
+      content: ""; position: absolute; left: 0; top: 6px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--sheet); border: 3px solid var(--gold);
+    }
+    .project:last-child::after { border-color: var(--bronze); }
+
+    .project h3 { font: 600 1.15rem/1.3 var(--display); margin: 0; }
+    .meta { color: var(--muted); font-size: 0.92rem; margin: 2px 0 14px; }
+    .project ul { margin: 0; padding-left: 18px; max-width: 70ch; }
+    .project li { margin-bottom: 8px; }
+    .project li::marker { color: var(--silver); }
+
+    .edu { list-style: none; padding: 0; margin: 0; }
+    .edu li {
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px;
+      padding: 12px 0; border-bottom: 1px solid var(--line);
+    }
+    .edu li:last-child { border-bottom: 0; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 860px) {
+      .page { grid-template-columns: 1fr; margin: 0; border: 0; }
+      aside { border-right: 0; border-bottom: 1px solid var(--line); padding: 36px 24px; }
+      main { padding: 36px 24px; }
+      h1 { font-size: 2rem; }
+    }
+
+    /* ---------- Print: clean single sheet ---------- */
+    @media print {
+      body { background: #fff; font-size: 12px; }
+      .page { margin: 0; border: 0; grid-template-columns: 230px 1fr; }
+      aside, main { padding: 24px; }
+      a { color: var(--ink); text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <aside>
+      <div class="layers" aria-hidden="true"><span></span><span></span><span></span></div>
+      <h1>[YOUR_NAME]</h1>
+      <p class="role">Azure Data Engineer</p>
+
+      <ul class="contact">
+        <li><a href="mailto:[YOUR_EMAIL]">[YOUR_EMAIL]</a></li>
+        <li>Chennai, Tamil Nadu, India</li>
+        <!-- Optional: add LinkedIn / GitHub -->
+        <!-- <li><a href="https://linkedin.com/in/[HANDLE]">LinkedIn</a></li> -->
+      </ul>
+
+      <h2>Technical skills</h2>
+      <dl class="skills">
+        <div><dt>Languages</dt><dd>Python, SQL</dd></div>
+        <div><dt>Big data</dt><dd>PySpark, Spark SQL</dd></div>
+        <div><dt>Azure</dt><dd>Data Factory, Databricks, ADLS Gen2, Synapse Analytics, Azure SQL Database</dd></div>
+        <div><dt>Streaming</dt><dd>Event Hub, Structured Streaming</dd></div>
+        <div><dt>Data engineering</dt><dd>ETL/ELT, CDC, SCD Type 2, Delta Lake</dd></div>
+        <div><dt>Data warehousing</dt><dd>Star schema, fact/dimension modelling</dd></div>
+        <div><dt>DevOps</dt><dd>Azure DevOps, CI/CD, ARM Templates</dd></div>
+        <div><dt>Monitoring</dt><dd>Azure Monitor, Log Analytics</dd></div>
+      </dl>
+    </aside>
+
+    <main>
+      <section>
+        <h2>Summary</h2>
+        <p class="summary">
+          Azure Data Engineer with 4 years of experience building scalable batch and real-time data
+          pipelines on Azure. Specialized in PySpark, Azure Databricks, and Synapse Analytics, with
+          strong expertise in Medallion architectures, large-scale ETL optimization, and high-volume
+          transactional data.
+        </p>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+        <div class="employer">
+          <span><strong>Yodhin Solutions</strong>, Azure Data Engineer</span>
+          <span class="dates">Oct 2022 – Present</span>
+        </div>
+
+        <article class="project">
+          <h3>[CLIENT_NAME_1], CTRM platform</h3>
+          <p class="meta">Data Engineer, Nov 2024 – Present</p>
+          <ul>
+            <li>Developed batch ETL pipelines with Azure Data Factory and Databricks (PySpark), processing multi-million record datasets across daily and intraday windows.</li>
+            <li>Designed a Medallion architecture (Bronze, Silver, Gold) to cleanse, conform, and enrich raw trading and commodity data into analytics-ready datasets.</li>
+            <li>Built PySpark pipelines loading a star schema (FactSales, DimCustomer, DimProduct) for sales and customer analytics.</li>
+            <li>Implemented SCD Type 2 with Delta Lake MERGE to track customer and product dimension history.</li>
+            <li>Implemented CDC-based incremental loading on last-modified timestamps, cutting reprocessing and runtime.</li>
+            <li>Built pre-computed datasets for revenue and customer behaviour analytics, reducing dashboard load times.</li>
+            <li>Added data quality gates to catch schema drift, null anomalies, and duplicates before the Gold layer.</li>
+            <li>Kept Delta tables query-performant with OPTIMIZE and Z-ORDER, and used time travel to isolate faulty runs.</li>
+            <li>Automated scheduling and dependencies in Data Factory; standardized parameterized notebook templates to speed up source onboarding.</li>
+            <li>Delivered Power BI dashboards with business teams and validated datasets with QA during UAT.</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <h3>[CLIENT_NAME_2], e-commerce and financial transactions</h3>
+          <p class="meta">Data Engineer, Oct 2022 – Nov 2024</p>
+          <ul>
+            <li>Led real-time pipelines with Azure Event Hub and Databricks Structured Streaming, processing 10M+ daily transactions.</li>
+            <li>Owned a streaming-first architecture unifying APIs, transactional databases, and flat files into one ingestion layer.</li>
+            <li>Implemented Auto Loader for schema-evolving, fault-tolerant ingestion of late and out-of-order data.</li>
+            <li>Applied tumbling and sliding window aggregations to compute real-time volume, velocity, and anomaly metrics.</li>
+            <li>Engineered stateful streaming joins and watermark-based deduplication against reference data.</li>
+            <li>Loaded curated streaming and batch output into Azure Synapse for near-real-time and historical queries.</li>
+            <li>Tuned partitions, checkpointing, and micro-batches to sustain streaming throughput under load.</li>
+            <li>Unified streaming and batch into one Lakehouse model, improving fraud detection speed and live monitoring.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <ul class="edu">
+          <li><span>Master of Computer Applications (MCA), Vellore Institute of Technology</span><span class="dates">Pursuing, part time</span></li>
+          <li><span>Bachelor of Computer Science (BSc), Vellore Institute of Technology</span><span class="dates">2017 – 2020</span></li>
+        </ul>
+      </section>
+    </main>
+
+  </div>
+</body>
+</html>
